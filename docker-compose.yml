@@ -1,0 +1,20 @@
+version: '3.5'
+
+volumes:
+  zentao-pm-vol:
+    name: zentao-pm-prod
+  zentao-mysql-vol:
+    name: zentao-mysql-prod
+
+services:
+  zentao:
+    image: easysoft/zentao:12.4.stable
+    container_name: zentao-prodserver
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=z3nt40pm
+    volumes:
+      - zentao-pm-vol:/www/zentaopms
+      - zentao-mysql-vol:/var/lib/mysql
+    ports:
+      - 8500:80
