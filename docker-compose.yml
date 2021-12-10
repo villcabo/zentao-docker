@@ -1,12 +1,15 @@
 version: '3.5'
 
 volumes:
+  # docker volume create zentao-pm-prod
   zentao-pm-vol:
     name: zentao-pm-prod
+  # docker volume create zentao-mysql-prod
   zentao-mysql-vol:
     name: zentao-mysql-prod
 
 services:
+  # docker run --name zentao-prodserver -p 8500:80 -v zentao-pm-prod:/www/zentaopms -v zentao-mysql-prod:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=z3nt40pm -d easysoft/zentao:12.4.stable
   zentao:
     image: easysoft/zentao:12.4.stable
     container_name: zentao-prodserver
